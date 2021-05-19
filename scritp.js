@@ -53,6 +53,9 @@ $("#currentDay").text(currentDate);
 
 
 
+
+
+
 // creating click event for EACH save button
 $(".saveBtn").on("click", function (event) {
   const saveButton = $(".saveBtn");
@@ -60,12 +63,17 @@ $(".saveBtn").on("click", function (event) {
 });
 
 
+
+
+var enteredText = document.querySelector(".textarea");
 // function to save to local storage
 function saveEvent() {
-  // save entered from user from textarea
+  // save entered event from user from textarea
   const eventText = $(this).siblings('.textarea')
+  enteredText.textContent = eventText
   //  set to local storage
-  localStorage.setItem($(".textarea"), JSON.stringify($(".textarea")));
+  localStorage.setItem($(eventText), JSON.stringify($(eventText)));
+
 
 };
 saveEvent();
