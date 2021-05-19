@@ -16,8 +16,6 @@
 // THEN the saved events persist
 
 
-// display current date at the top of the planner. use moment.js library to do that. 
-
 // time blocks for standard business hours = 9-5 (9blocks)
 // color code time blocks: use if (time < moment().format('HH') to else if colors
 // all the colors are saved in css need to append their class 
@@ -32,79 +30,45 @@
 // when refresh page the event is still there
 
 
+// create click event for save button FOR EACH BUTTON FOR LOOP
+
+// function to save  to local storage call on sibling to text area
+
+// create function to pull it back out of local storage for loop to loop through text area
+
+// for loop to link the colors changing along with moment.js if else statements
+
+
+
+
+
+
+
+
 // CODE STARTS BELOW HERE 
 
 // moment.js to display current date
 const currentDate = moment().format('dddd MMMM YYYY');
 $("#currentDay").text(currentDate);
 
-// Select the existing DOM element, <div id="root">, and assign to a rootEl variable
-// const rootEl = $('#root');
 
 
-// variable to store hours (9-5) 
-const dailyHours = [
-  {
-    // hour text
-    hour: '9am',
-    // time for moment js
-    time: '09',
-    // empty event string to add event
-    event: "",
-  },
-  {
-    hour: '10am',
-    time: '10',
-    event: "",
-  },
-  {
-    hour: '11am',
-    time: '11',
-    event: "",
-  },
-  {
-    hour: '12pm',
-    time: '12',
-    event: "",
-  },
-  {
-    hour: '1pm',
-    time: '13',
-    event: "",
-  },
-  {
-    hour: '2pm',
-    time: '14',
-    event: "",
-  },
-  {
-    hour: '3pm',
-    time: '15',
-    event: "",
-  },
-  {
-    hour: '4pm',
-    time: '16',
-    event: "",
-  },
-  {
-    hour: '5pm',
-    time: '17',
-    event: "",
-  },
-]
-
-// // to loop through hours variable
-// dailyHours.forEach(function () { }
+// creating click event for EACH save button
+$(".saveBtn").on("click", function (event) {
+  const saveButton = $(".saveBtn");
+  console.log('click');
+});
 
 
-// // creating hours row and adding class from css
-// let hourBlock = $('<form>').attr('class', 'row');
-// // appending hours to html div
-// $('#root').append(hourBlock);
+// function to save to local storage
+function saveEvent() {
+  // save entered from user from textarea
+  const eventText = $(this).siblings('.textarea')
+  //  set to local storage
+  localStorage.setItem($(".textarea"), JSON.stringify($(".textarea")));
 
-
-// let eventBlock = $('<div>').attr('class', 'description')
+};
+saveEvent();
 
 
 
@@ -114,40 +78,3 @@ const dailyHours = [
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// // creating save button
-// // grabbing save button image
-// const saveButtonImage = $("<i class='fas fa-save'></i>")
-// // makes image a button
-// const saveButton = $('<button>')
-//   // adding css class to button
-//   .attr('class', 'saveBtn')
-// // appends save button to page
-// saveButton.append(saveButtonImage);
