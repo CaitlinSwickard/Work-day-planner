@@ -33,6 +33,8 @@
 // create click event for save button FOR EACH BUTTON FOR LOOP
 
 // function to save  to local storage call on sibling to text area
+// save it to local storage with the hour it is attached to?
+// the name of the variable to local storage then the value
 
 // create function to pull it back out of local storage for loop to loop through text area
 
@@ -54,35 +56,24 @@ $("#currentDay").text(currentDate);
 
 
 
-
-
 // creating click event for EACH save button
 $(".saveBtn").on("click", function (event) {
   const saveButton = $(".saveBtn");
   console.log('click');
+  // call function to save to local storage
+  saveEvent();
 });
 
 
-
-
-var enteredText = document.querySelector(".textarea");
 // function to save to local storage
 function saveEvent() {
-  // save entered event from user from textarea
-  const eventText = $(this).siblings('.textarea')
-  enteredText.textContent = eventText
-  //  set to local storage
-  localStorage.setItem($(eventText), JSON.stringify($(eventText)));
-
-
+  // grabbing text area from html
+  const userText = $(this).siblings('.textarea').val();
+  const timeHrs = $(this).siblings('.hour').val();
+  // setting to local storage
+  localStorage.setItem($(timeHrs), JSON.stringify($(userText)));
+  console.log(userText)
+  console.log(timeHrs)
 };
-saveEvent();
-
-
-
-
-
-
-
 
 
