@@ -58,22 +58,47 @@ $("#currentDay").text(currentDate);
 
 // creating click event for EACH save button
 $(".saveBtn").on("click", function (event) {
-  const saveButton = $(".saveBtn");
-  console.log('click');
-  // call function to save to local storage
-  saveEvent();
+  // loop through all the available buttons to click
+  for (var i = 0; i < $("saveBtn"); i++) {
+    const saveButton = $(".saveBtn")[i].saveButton;
+    console.log('click');
+    // call function to save to local storage
+    saveReminder();
+  };
 });
 
 
+
+
 // function to save to local storage
-function saveEvent() {
+function saveReminder() {
   // grabbing text area from html
-  const userText = $(this).siblings('.textarea').val();
-  const timeHrs = $(this).siblings('.hour').val();
+  const userText = $('#display-text').val(),
+    timeHrs = $('#hours-text').html()
   // setting to local storage
-  localStorage.setItem($(timeHrs), JSON.stringify($(userText)));
+  localStorage.setItem(timeHrs, userText);
   console.log(userText)
   console.log(timeHrs)
 };
+
+
+
+
+
+
+
+
+
+
+
+
+// function displayReminder() {
+
+//   var displayText = JSON.parse(localStorage.getItem(userText))
+//   if (displayText !== null) {
+//     userText = displayText;
+//   }
+//   displayReminder()
+// }
 
 
