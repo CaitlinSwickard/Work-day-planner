@@ -1,19 +1,3 @@
-// AS AN employee with a busy schedule
-// I WANT to add important events to a daily planner
-// SO THAT I can manage my time effectively
-// GIVEN I am using a daily planner to create a schedule
-// WHEN I open the planner
-// THEN the current day is displayed at the top of the calendar
-// WHEN I scroll down
-// THEN I am presented with timeblocks for standard business hours
-// WHEN I view the timeblocks for that day
-// THEN each timeblock is color coded to indicate whether it is in the past, present, or future
-// WHEN I click into a timeblock
-// THEN I can enter an event
-// WHEN I click the save button for that timeblock
-// THEN the text for that event is saved in local storage
-// WHEN I refresh the page
-// THEN the saved events persist
 
 
 // time blocks for standard business hours = 9-5 (9blocks)
@@ -57,11 +41,10 @@ $("#currentDay").text(currentDate);
 
 
 
-
 // creating click event for EACH save button
 $(".saveBtn").on("click", function (event) {
   // loop through all the available buttons to click
-  $(".saveBtn").each(function (textarea) {
+  $(".saveBtn").each(function (description) {
     console.log($('this'));
   })
   // call function to save to local storage
@@ -83,44 +66,36 @@ function saveReminder() {
 
 
 
-// function displayReminder() {
 
-//   var displayText = JSON.parse(localStorage.getItem(userText))
-//   if (displayText !== null) {
-//     userText = displayText;
-//   }
-//   displayReminder()
+
+
+
+
+// const formField = $(".description");
+// const thisHour = $("#hours-text")
+
+
+// // asking if the html matches the current hour from moment.js
+// if (thisHour.html() < moment().format("HH")) {
+//   // attaching its class to change colors
+//   formField.attr({
+//     // "class": "description",
+//     "class": "past"
+
+
+//   })
+// } else if (thisHour.html() === moment().format("HH")) {
+//   formField.attr({
+//     // "class": "description",
+//     "class": "present"
+
+
+//   })
+// } else if (thisHour.html() > moment().format("HH")) {
+//   formField.attr({
+//     // "class": "description",
+//     "class": "future"
+
+
+//   })
 // }
-
-
-
-
-const formField = $(".description");
-const thisHour = $("#hours-text")
-
-function changeColors() {
-  // asking if the html matches the current hour from moment.js
-  if (thisHour.html() < moment().format("HH")) {
-    // attaching its class to change colors
-    formField.attr({
-      // "class": "description",
-      "class": "past"
-
-
-    })
-  } else if (thisHour.html() === moment().format("HH")) {
-    formField.attr({
-      // "class": "description",
-      "class": "present"
-
-
-    })
-  } else if (thisHour.html() > moment().format("HH")) {
-    formField.attr({
-      // "class": "description",
-      "class": "future"
-
-
-    })
-  }
-}
