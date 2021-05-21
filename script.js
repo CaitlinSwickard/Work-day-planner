@@ -42,9 +42,9 @@ $("#currentDay").text(currentDate);
 
 
 // creating click event for EACH save button
-$(".saveBtn").on("click", function (event) {
+$(".saveBtn").on("click", function () {
   // loop through all the available buttons to click
-  $(".saveBtn").each(function (description) {
+  $(".saveBtn").each(function (userText) {
     console.log($('this'));
   })
   // call function to save to local storage
@@ -56,16 +56,13 @@ $(".saveBtn").on("click", function (event) {
 // function to save to local storage
 function saveReminder() {
   // grabbing text area from html
-  const userText = $('#display-text').val(),
-    timeHrs = $('#hours-text').html()
+  const userText = $('.description').val(),
+    timeHrs = $('.hour').html()
   // setting to local storage
   localStorage.setItem(timeHrs, userText);
   console.log(userText)
   console.log(timeHrs)
 };
-
-
-
 
 
 
