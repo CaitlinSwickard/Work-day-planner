@@ -43,56 +43,58 @@ $("#currentDay").text(currentDate);
 
 // creating click event for EACH save button
 $(".saveBtn").on("click", function () {
-  // loop through all the available buttons to click
-  $(".saveBtn").each(function (userText) {
-    console.log($('this'));
-  })
-  // call function to save to local storage
-  saveReminder();
+  const userText = $(this).siblings('.description').val();
+  const timeHrs = $(this).parent().attr('id');
+
+  localStorage.setItem(timeHrs, userText);
+
+  console.log(timeHrs);
+  const formText = $('.description')
+  // asking if the html matches the current hour from moment.js
+  if (timeHrs < moment().format("HH")) {
+    console.log('test');
+    // console.log(moment().format("HH"));
+    // attaching its class to change colors
+    formText.attr({
+
+      "class": "past"
+
+
+    })
+  } else if (timeHrs === moment().format("HH")) {
+    formText.attr({
+
+      "class": "present"
+
+
+    })
+  } else if (timeHrs > moment().format("HH")) {
+    formText.attr({
+
+      "class": "future"
+
+
+    })
+  }
+
+
 });
 
 
 
 // function to save to local storage
-function saveReminder() {
-  // grabbing text area from html
-  const userText = $('.description').val(),
-    timeHrs = $('.hour').html()
-  // setting to local storage
-  localStorage.setItem(timeHrs, userText);
-  console.log(userText)
-  console.log(timeHrs)
-};
+// function saveReminder() {
+//   // grabbing text area from html
+
+//   // setting to local storage
+
+//   console.log(userText)
+//   console.log(timeHrs)
+// };
 
 
 
 
 
-// const formField = $(".description");
-// const thisHour = $("#hours-text")
 
 
-// // asking if the html matches the current hour from moment.js
-// if (thisHour.html() < moment().format("HH")) {
-//   // attaching its class to change colors
-//   formField.attr({
-//     // "class": "description",
-//     "class": "past"
-
-
-//   })
-// } else if (thisHour.html() === moment().format("HH")) {
-//   formField.attr({
-//     // "class": "description",
-//     "class": "present"
-
-
-//   })
-// } else if (thisHour.html() > moment().format("HH")) {
-//   formField.attr({
-//     // "class": "description",
-//     "class": "future"
-
-
-//   })
-// }
