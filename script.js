@@ -47,53 +47,50 @@ $(".saveBtn").on("click", function () {
   const timeHrs = $(this).parent().attr('id');
 
   localStorage.setItem(timeHrs, userText);
-
-  console.log(timeHrs);
-  const formText = $('.description')
-  // asking if the html matches the current hour from moment.js
-  if (timeHrs < moment().format("HH")) {
-    console.log('test');
-    // console.log(moment().format("HH"));
-    // attaching its class to change colors
-    formText.attr({
-
-      "class": "past"
-
-
-    })
-  } else if (timeHrs === moment().format("HH")) {
-    formText.attr({
-
-      "class": "present"
-
-
-    })
-  } else if (timeHrs > moment().format("HH")) {
-    formText.attr({
-
-      "class": "future"
-
-
-    })
-  }
-
-
 });
 
 
 
-// function to save to local storage
-// function saveReminder() {
-//   // grabbing text area from html
-
-//   // setting to local storage
-
-//   console.log(userText)
-//   console.log(timeHrs)
-// };
 
 
+const formText = $('.description')
+const timeHrs = $(this).parent().attr('id');
+console.log(timeHrs);
+// asking if the html matches the current hour from moment.js
+if (timeHrs < moment().format("HH")) {
+  console.log(true);
+  // console.log(moment().format("HH"));
+  // attaching its class to change colors
+  formText.attr({
 
+    "class": "past"
+
+  })
+} else if (timeHrs === moment().format("HH")) {
+  formText.attr({
+
+    "class": "present"
+
+  })
+} else if (timeHrs > moment().format("HH")) {
+  formText.attr({
+
+    "class": "future"
+
+  })
+}
+
+// gets value in hourly form for each hour and displays it to the page
+// when page refreshes value will still be there if clicked on save
+$("#9 .description").val(localStorage.getItem("9"));
+$("#10 .description").val(localStorage.getItem("10"));
+$("#11 .description").val(localStorage.getItem("11"));
+$("#12 .description").val(localStorage.getItem("12"));
+$("#13 .description").val(localStorage.getItem("13"));
+$("#14 .description").val(localStorage.getItem("14"));
+$("#15 .description").val(localStorage.getItem("15"));
+$("#16 .description").val(localStorage.getItem("16"));
+$("#17 .description").val(localStorage.getItem("17"));
 
 
 
