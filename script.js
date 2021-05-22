@@ -39,46 +39,59 @@ $("#currentDay").text(currentDate);
 
 
 
-
-
 // creating click event for EACH save button
 $(".saveBtn").on("click", function () {
   const userText = $(this).siblings('.description').val();
   const timeHrs = $(this).parent().attr('id');
-
+  console.log(timeHrs);
   localStorage.setItem(timeHrs, userText);
 });
 
 
 
+// creating function to change colors on hours
+$(".time-block").each(function () {
+  // grabbing html id for current hour
+  const timeHr = $(this).attr('id');
+  console.log(this);
+  // changing html from string to number to compare to moment.js
+  const times = parseInt($(this).attr('id'));
+  console.log(times);
+  // asking if the html matches the current hour from moment.js
+  if (times < moment().format("HH")) {
+    // attaching its class to change colors
+    $('.description').addClass('past');
+  } else if (times === moment().format("HH")) {
+    $('.description').addClass('present');
+  } else if (times > moment().format("HH")) {
+    $('.description').addClass('future');
+  }
+})
 
 
-const formText = $('.description')
-const timeHrs = $(this).parent().attr('id');
-console.log(timeHrs);
-// asking if the html matches the current hour from moment.js
-if (timeHrs < moment().format("HH")) {
-  console.log(true);
-  // console.log(moment().format("HH"));
-  // attaching its class to change colors
-  formText.attr({
 
-    "class": "past"
+// const formText = $('.description')
+// const timeHrs = $(this).parent().attr('id');
+// console.log(this);
+// // asking if the html matches the current hour from moment.js
+// if (timeHrs < moment().format("HH")) {
+//   console.log(true);
+//   // console.log(moment().format("HH"));
+//   // attaching its class to change colors
+//   formText.attr({
+//     "class": "past"
+//   })
+// } else if (timeHrs === moment().format("HH")) {
+//   formText.attr({
+//     "class": "present"
+//   })
+// } else if (timeHrs > moment().format("HH")) {
+//   formText.attr({
+//     "class": "future"
+//   })
+// }
 
-  })
-} else if (timeHrs === moment().format("HH")) {
-  formText.attr({
 
-    "class": "present"
-
-  })
-} else if (timeHrs > moment().format("HH")) {
-  formText.attr({
-
-    "class": "future"
-
-  })
-}
 
 // gets value in hourly form for each hour and displays it to the page
 // when page refreshes value will still be there if clicked on save
