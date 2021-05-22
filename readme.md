@@ -32,3 +32,4 @@ This project is a daily planning calendar. The user can input task to do through
 
 ![Start Quiz screen](images/shot-1.png)
 ![Start Quiz screen](images/shot-2.png)
+![Start Quiz screen](images/shot-3.png)
