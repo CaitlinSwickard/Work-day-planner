@@ -48,7 +48,7 @@ $(".time-block").each(function () {
 
 // gets value in hourly form for each hour and displays it to the page
 // when page refreshes value will still be there if clicked on save
-$("#9 .description").val(localStorage.getItem("9"));
+$("#09 .description").val(localStorage.getItem("09"));
 $("#10 .description").val(localStorage.getItem("10"));
 $("#11 .description").val(localStorage.getItem("11"));
 $("#12 .description").val(localStorage.getItem("12"));
