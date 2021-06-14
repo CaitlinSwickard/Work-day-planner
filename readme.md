@@ -4,7 +4,7 @@ This project is a daily planning calendar. The user can input task to do through
 
 [View page here!](https://caitlinswickard.github.io/Work-day-planner/)
 
-### Criteria
+## Criteria
 
 - GIVEN I am using a daily planner to create a schedule
 - WHEN I open the planner
@@ -28,8 +28,8 @@ This project is a daily planning calendar. The user can input task to do through
 - jQuery
 - BootStrap
 
-## Screenshots
+## Screen shots
 
-![Start Quiz screen](images/shot-1.png)
-![Start Quiz screen](images/shot-2.png)
-![Start Quiz screen](images/shot-3.png)
+![Start Quiz screen](images/Shot-1.png)
+![Start Quiz screen](images/Shot-2.png)
+
