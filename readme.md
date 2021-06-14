@@ -30,5 +30,5 @@ This project is a daily planning calendar. The user can input task to do through
 
 ## Screen shots
 
-![Shot-1](images/Shot-1.png)
-![Shot-2](images/Shot-2.png)
+![Shot-1](images/Shot1.png)
+![Shot-2](images/Shot2.png)
